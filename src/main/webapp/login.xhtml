@@ -1,0 +1,107 @@
+ <ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core" 
+    xmlns:ui="http://java.sun.com/jsf/facelets" 
+    xmlns:a4j="http:/primefaces.org/a4j"
+   	xmlns:p="http://primefaces.org/ui"
+   	xmlns:rich="http://richfaces.org/rich">
+	
+	
+	
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link href="assets/css/styles.min.css" rel="stylesheet" />
+</h:head>
+<f:loadBundle var="msg"  basename="messages"></f:loadBundle>
+<h:body class="container-fluid">
+  <header class="row flex-nowrap site-header">
+    <div class="col logo">
+      <h1 class="main-logo">
+        <a href="#">Department of Environment &amp; Conservation</a>
+      </h1>
+    </div>
+    <div class="col utility">
+      <nav>
+        <ul class="horizontal nav-links">
+          <li>
+            <a href="">
+              <i class="fa fa-user-circle"></i> Account</a>
+          </li>
+          <li>
+            <a href="https://tdecdev.tn.gov/Single_Signon/Dashboard/Index/?returnurl=https://tdecdev.tn.gov/drhonline/%23">
+              <i class="fa fa-sign-out"></i> Sign Out</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="row main">
+    <section class="col content">
+      <h1 class="page-title">Construction Stormwater Application</h1>
+      <h2 class="page-subtitle">Please use the form below to access the application.</h2>
+
+      <div class="row">
+        <div class="col-4">
+          <div class="card">
+            <div class="card-header highlighted-header">
+              <h5>Please log in.</h5>
+            </div>
+            
+            <div class="card-body">
+            <h:form>
+             <p:messages id="messages" autoUpdate="true" closable="true"/>
+              <div class="form-group">
+                <label>Email Address</label>
+                <h:inputText class="form-control"  id="username" value="#{login.user}"  required="true" requiredMessage="#{msg['message.userId']}">
+               </h:inputText>
+               <rich:message id="usernameMsg" for="username" />
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <h:inputSecret class="form-control"  id="password" value="#{login.pwd}" required="true" requiredMessage="Password is Missing">
+                </h:inputSecret>
+                <rich:message id="passwordMsg" for="password" />
+              </div>
+             
+              <h:commandButton class="btn btn-primary btn-lg" id="eventsrc" update="messages" action="#{login.validateUsernamePassword}" value="Login"></h:commandButton>
+              </h:form>
+            </div>
+          </div>
+        </div>
+        <div class="col-5">
+          <p>Due to enhanced EPA requirements you must login separately to the Construction Stormwater Application. Please use your normal TDEC user account to login.</p>
+        </div>
+      </div>
+
+    </section>
+  </section>
+  <section>
+  <footer class="row site-footer">
+    <section class="col app-info">
+      <p>
+        <strong>Construction Stormwater Permitting</strong> | Version 0.1.0
+        <br /> Help Desk (888) 888-8888 |
+        <a href="mailto:bg-help_desk@tn.gov">Email TDEC Help Desk</a>
+      </p>
+      <p>
+        <small>Copyright 2018. Tennessee Department of Environment &amp; Conservation.</small>
+      </p>
+    </section>
+    <section class="col tdec-info">
+      <h6>Department of Environment &amp; Conservation</h6>
+      <p>312 Rosa L. Parks Ave. Nashville, TN 37243
+        <br />
+        <span class="phone">(888) 891-TDEC (8332)</span> |
+        <a href="#">Email Questions to TDEC</a>
+      </p>
+    </section>
+  </footer>
+  </section>
+
+  <script src="assets/js/jquery.min.js"></script>
+  
+  
+
+</h:body>
+</ui:composition>
